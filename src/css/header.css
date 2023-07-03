@@ -1,0 +1,31 @@
+.header-main {
+  padding: 25px 55px;
+  background: #d8f8ec;
+}
+.app-logo h4 {
+  margin: 0;
+  color: #f1346c;
+  font-size: 28px;
+  cursor: pointer;
+}
+.navbar-menu-items ul {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+.navbar-menu-items ul li a {
+  margin-right: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 5px;
+  text-decoration: none;
+  color: #f1346c;
+}
+.navbar-menu-items ul li a:hover {
+  margin-right: 25px;
+  background: #f1346c;
+  border-radius: 8px;
+  color: #ffffff;
+}
