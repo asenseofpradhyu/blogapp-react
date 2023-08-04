@@ -14,18 +14,15 @@ function App() {
   const [blogListData, setBlogListData] = useState([]);
 
   const onGetDataFromBlogComponent = (blogData) => {
-
-    setBlogListData((prevDataArray) => [blogData, ...prevDataArray ]);
+    setBlogListData((prevDataArray) => [blogData, ...prevDataArray]);
+    console.log(blogData);
   };
 
   return (
     <React.Fragment>
       <Header />
       <Routes>
-        <Route
-          path="/"
-          element={<Homepage blogListData={blogListData} />}
-        />
+        <Route path="/" element={<Homepage blogListData={blogListData} />} />
         <Route
           path="/blog"
           element={

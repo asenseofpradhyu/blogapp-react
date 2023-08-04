@@ -9,8 +9,8 @@ import PropTypes from "prop-types";
 import BlogItem from "../components/blogItem";
 import "../css/homepage.css";
 
-
 function Homepage({ blogListData }) {
+  console.log("Bloglist ", blogListData);
   return (
     <div className="main-content">
       <Container>
@@ -32,15 +32,21 @@ function Homepage({ blogListData }) {
         </section>
         <section id="bloglist-section">
           <Stack gap={3}>
-
-{blogListData.length === 0 ? (
-  <p style={{textAlign:'center'}}>No Blogs are available 😔</p>
-) : (blogListData.map((blog,i) => (
-<BlogItem key={i} blogTitle={blog.title} blogAuthor={"Pradhuman Padhiyar"} blogTimeAndDate={blog.date} blogAuthorImage={'https://api.dicebear.com/6.x/open-peeps/svg?face=angryWithFang,calm,blank'}/>
-))
-)}
-
-           
+            {blogListData.length === 0 ? (
+              <p style={{ textAlign: "center" }}>No Blogs are available 😔</p>
+            ) : (
+              blogListData.map((blog, i) => (
+                <BlogItem
+                  key={i}
+                  blogTitle={blog.title}
+                  blogAuthor={"Pradhuman Padhiyar"}
+                  blogTimeAndDate={blog.date}
+                  blogAuthorImage={
+                    "https://api.dicebear.com/6.x/open-peeps/svg?face=angryWithFang,calm,blank"
+                  }
+                />
+              ))
+            )}
           </Stack>
         </section>
       </Container>

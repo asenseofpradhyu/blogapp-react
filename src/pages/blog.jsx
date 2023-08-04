@@ -10,29 +10,20 @@ import PropTypes from "prop-types";
 //Local Imports
 import CustomInputText from "../components/customInputText";
 import CustomButton from "../components/customButton";
+import CustomAlert from "../components/customAlert";
+import formatDateTime from "../util/format_date";
+import isEditorEmpty from "../util/editor_empty";
 import "../css/button.css";
 
 // Editor dropdown not working because of reactjsStrictmode
 
 function Blog({ onPassDatatoAppComponent }) {
+  // UseState Hooks
   const [blogTitle, setBlogTitle] = useState("");
   const [blogContent, setBlogContent] = useState(EditorState.createEmpty());
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [alert, setAlert] = useState(false);
   const currentDate = new Date();
-
-  const formatDateTime = (date) => {
-    const day = date.getDate().toString().padStart(2, "0");
-    const month = (date.getMonth() + 1).toString().padStart(2, "0");
-    const year = date.getFullYear().toString().slice(-2);
-    const hours = date.getHours();
-    const minutes = date.getMinutes();
-
-    const amOrPm = hours >= 12 ? "PM" : "AM";
-    const formattedHours = (hours % 12 || 12).toString().padStart(2, "0");
-    const formattedMinutes = minutes.toString().padStart(2, "0");
-
-    return `${day}/${month}/${year} - ${formattedHours}:${formattedMinutes} ${amOrPm}`;
-  };
 
   const onSubmitBtnClick = (e) => {
     e.preventDefault();
@@ -42,12 +33,27 @@ function Blog({ onPassDatatoAppComponent }) {
       "Blog Content:",
       draftToHtml(convertToRaw(blogContent.getCurrentContent()))
     );
-    onPassDatatoAppComponent({
-      title: blogTitle,
-      content: draftToHtml(convertToRaw(blogContent.getCurrentContent())),
-      date: formatDateTime(currentDate),
-    });
-    setFormSubmitted(false);
+    console.log("Date: ", formatDateTime(currentDate));
+    if (blogTitle && !isEditorEmpty(blogContent)) {
+      onPassDatatoAppComponent({
+        title: blogTitle,
+        content: draftToHtml(convertToRaw(blogContent.getCurrentContent())),
+        date: formatDateTime(currentDate),
+      });
+      setFormSubmitted(false);
+      setAlert(true);
+      setBlogTitle("");
+      setBlogContent(EditorState.createEmpty());
+      setTimeout(() => {
+        setAlert(false);
+      }, 3000);
+    } else {
+      setFormSubmitted(true);
+      setAlert(true);
+      setTimeout(() => {
+        setAlert(false);
+      }, 3000);
+    }
   };
 
   return (
@@ -70,15 +76,37 @@ function Blog({ onPassDatatoAppComponent }) {
               defaultEditorState={blogContent}
               onEditorStateChange={setBlogContent}
             />
-            <Form.Control.Feedback type="invalid">
+            <Form.Control.Feedback
+              style={{
+                display:
+                  formSubmitted && isEditorEmpty(blogContent)
+                    ? "block"
+                    : "none",
+              }}
+              type="invalid"
+            >
               Please add blog content.
             </Form.Control.Feedback>
           </Form.Group>
+          {isEditorEmpty(blogContent) && blogTitle == "" && formSubmitted ? (
+            <CustomAlert
+              isVisible={alert}
+              alertMessage="Please fill all required forms ❌"
+              alertClass="danger"
+            />
+          ) : (
+            <CustomAlert
+              isVisible={alert}
+              alertMessage="Your blog publish successfully 🎉"
+              alertClass="success"
+            />
+          )}
           <CustomButton
             buttonText={"Publish Blog"}
             buttonType={"submit"}
             buttonClassName={"btn btn-custom w-100"}
             buttonOnClick={(e) => onSubmitBtnClick(e)}
+            // isDisabled={isEditorEmpty(blogContent) && blogTitle == ""}
           />
         </Form>
       </Row>

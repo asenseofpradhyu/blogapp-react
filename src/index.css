@@ -27,3 +27,13 @@ body {
 .rdw-editor-main {
   padding: 0 10px;
 }
+.rdw-dropdown-selectedtext {
+  color: rgb(33, 37, 41) !important;
+  text-decoration: none !important;
+}
+.rdw-option-wrapper:hover {
+  background: #f1346c;
+}
+.rdw-option-active {
+  background: #f1346c;
+}

@@ -7,12 +7,14 @@ function CustomButton({
   buttonText,
   buttonClassName,
   buttonOnClick,
+  isDisabled,
 }) {
   return (
     <Button
       className={buttonClassName}
       type={buttonType}
       onClick={buttonOnClick}
+      disabled={isDisabled}
     >
       {buttonText}
     </Button>
@@ -24,6 +26,7 @@ CustomButton.propTypes = {
   buttonText: PropTypes.string.isRequired,
   buttonClassName: PropTypes.string,
   buttonOnClick: PropTypes.func.isRequired,
+  isDisabled: PropTypes.bool,
 };
 
 CustomButton.defaultProps = {

@@ -42,6 +42,7 @@
   padding: 10px 15px;
   background: #d8f8ec;
   border-radius: 5px;
+  cursor: pointer;
 }
 .blog-content {
   display: flex;
