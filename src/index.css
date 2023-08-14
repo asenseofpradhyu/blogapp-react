@@ -1,6 +1,39 @@
+body {
+  font-family: "Poppins", sans-serif;
+}
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 .center-page {
   display: flex;
   justify-content: center;
   align-items: center;
   height: calc(100vh - 85px);
+}
+.form-control:focus {
+  border-color: #f1346c;
+  box-shadow: none;
+}
+.main-content {
+  padding-top: 125px;
+  padding-bottom: 130px;
+}
+.rdw-editor-wrapper {
+  border: 1px solid #dee2e6;
+  border-radius: 5px;
+}
+.rdw-editor-main {
+  padding: 0 10px;
+}
+.rdw-dropdown-selectedtext {
+  color: rgb(33, 37, 41) !important;
+  text-decoration: none !important;
+}
+.rdw-option-wrapper:hover {
+  background: #f1346c;
+}
+.rdw-option-active {
+  background: #f1346c;
 }
