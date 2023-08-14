@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
-import Form from "react-bootstrap/Form";
+
+import { Form } from "react-bootstrap";
 import PropTypes from "prop-types";
 
 function CustomInputText({
@@ -30,7 +30,7 @@ function CustomInputText({
 
 CustomInputText.propTypes = {
   inputLabel: PropTypes.string.isRequired,
-  inputType: PropTypes.oneOf(["text", "number", "email"]),
+  inputType: PropTypes.oneOf(["text", "number", "email", "password"]),
   inputPlaceholder: PropTypes.string.isRequired,
   inputValidationMsg: PropTypes.string.isRequired,
   inputOnChange: PropTypes.func.isRequired,

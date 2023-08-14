@@ -1,5 +1,4 @@
-/* eslint-disable react/prop-types */
-import Button from "react-bootstrap/Button";
+import { Button } from "react-bootstrap";
 import PropTypes from "prop-types";
 
 function CustomButton({

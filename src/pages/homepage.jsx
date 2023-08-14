@@ -1,8 +1,4 @@
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Form from "react-bootstrap/Form";
-import Stack from "react-bootstrap/Stack";
+import { Stack, Container, Row, Col, Form } from "react-bootstrap";
 import PropTypes from "prop-types";
 
 // Local Imports
@@ -10,7 +6,6 @@ import BlogItem from "../components/blogItem";
 import "../css/homepage.css";
 
 function Homepage({ blogListData }) {
-  console.log("Bloglist ", blogListData);
   return (
     <div className="main-content">
       <Container>
