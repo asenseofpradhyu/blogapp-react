@@ -1,11 +1,24 @@
 import { Stack, Container, Row, Col, Form } from "react-bootstrap";
 import PropTypes from "prop-types";
+import { useNavigate } from "react-router-dom";
+
 
 // Local Imports
 import BlogItem from "../components/blogItem";
 import "../css/homepage.css";
 
+
 function Homepage({ blogListData }) {
+
+  const navigate = useNavigate();
+
+console.log(blogListData);
+
+const onBlogItemClick = (blogId) => {
+  navigate({pathname:'/blog', search:`?blogID=${blogId}`});
+  console.log("Blog Click");
+}
+
   return (
     <div className="main-content">
       <Container>
@@ -39,6 +52,7 @@ function Homepage({ blogListData }) {
                   blogAuthorImage={
                     "https://api.dicebear.com/6.x/open-peeps/svg?face=angryWithFang,calm,blank"
                   }
+                  onBlogClick={() => onBlogItemClick(i)}
                 />
               ))
             )}

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 
 //Local Imports
 import Header from "./components/header";
@@ -12,10 +12,27 @@ import "./App.css";
 
 function App() {
   const [blogListData, setBlogListData] = useState([]);
+   const navigate = useNavigate();
 
   const onGetDataFromBlogComponent = (blogData) => {
     setBlogListData((prevDataArray) => [blogData, ...prevDataArray]);
     console.log(blogData);
+  };
+
+   const onGetUpdatedDataFromBlogComponent = (blogData) => {
+    // setBlogListData([...blogListData.slice(0, blogData.blogID), blogData, ...blogListData.slice(blogData.blogID, blogListData.length)]);
+     let newState = [...blogListData];
+    newState[blogData.blogID] = blogData;
+    setBlogListData(newState)
+    console.log(blogData);
+  };
+
+  const onDeleteDataFromBlog = (blogId) => {
+    setBlogListData((prevState) =>
+      prevState.splice(blogId, 1)
+    );
+     navigate({pathname:'/'});
+    console.log(blogId);
   };
 
   return (
@@ -24,9 +41,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Homepage blogListData={blogListData} />} />
         <Route
-          path="/blog"
+          path="/blog/*"
           element={
-            <Blog onPassDatatoAppComponent={onGetDataFromBlogComponent} />
+            <Blog onPassDatatoAppComponent={onGetDataFromBlogComponent} blogList={blogListData} onUpdateDatatoAppComponent={onGetUpdatedDataFromBlogComponent} onDeleteBlogFromBLogList={onDeleteDataFromBlog}/>
           }
         />
         <Route path="/profile" element={<Profile />} />
