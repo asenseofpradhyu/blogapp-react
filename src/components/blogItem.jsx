@@ -1,8 +1,9 @@
 import PropTypes from "prop-types";
-function BlogItem({ blogTitle, blogAuthor, blogTimeAndDate, blogAuthorImage }) {
+import { propTypes } from "react-bootstrap/esm/Image";
+function BlogItem({ blogTitle, blogAuthor, blogTimeAndDate, blogAuthorImage, onBlogClick }) {
   console.log("Blog Item: ", blogTitle);
   return (
-    <div className="blog-item">
+    <div className="blog-item" onClick={onBlogClick}>
       <div className="blog-content">
         <div className="blog-text">
           <h3 className="blog-title">{blogTitle}</h3>
@@ -28,6 +29,7 @@ BlogItem.propTypes = {
   blogAuthor: PropTypes.string.isRequired,
   blogTimeAndDate: PropTypes.string.isRequired,
   blogAuthorImage: PropTypes.string.isRequired,
+  onBlogClick: propTypes.any
 };
 
 export default BlogItem;
