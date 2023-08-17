@@ -10,6 +10,7 @@ function CustomInputText({
   inputOnChange,
   inputValue,
   inputIsValid,
+  inputFieldname
 }) {
   return (
     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
@@ -20,6 +21,7 @@ function CustomInputText({
         onChange={inputOnChange}
         value={inputValue}
         isInvalid={inputIsValid}
+        name={inputFieldname || 'defaultInput'}
       />
       <Form.Control.Feedback className="" type="invalid">
         {inputValidationMsg}
@@ -33,9 +35,10 @@ CustomInputText.propTypes = {
   inputType: PropTypes.oneOf(["text", "number", "email", "password"]),
   inputPlaceholder: PropTypes.string.isRequired,
   inputValidationMsg: PropTypes.string.isRequired,
-  inputOnChange: PropTypes.func.isRequired,
+  inputOnChange: PropTypes.any,
   inputValue: PropTypes.string,
-  inputIsValid: PropTypes.bool.isRequired,
+  inputIsValid: PropTypes.bool,
+  inputFieldname: PropTypes.string
 };
 
 export default CustomInputText;

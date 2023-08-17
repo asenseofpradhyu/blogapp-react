@@ -6,18 +6,22 @@ import { useNavigate } from "react-router-dom";
 // Local Imports
 import BlogItem from "../components/blogItem";
 import "../css/homepage.css";
+import { useState } from "react";
+import { getNameLocalStore } from "../utils/local_storage";
 
 
 function Homepage({ blogListData }) {
 
+  const [search, setSearch] = useState('');
   const navigate = useNavigate();
 
-console.log(blogListData);
+  console.log(blogListData);
 
-const onBlogItemClick = (blogId) => {
-  navigate({pathname:'/blog', search:`?blogID=${blogId}`});
-  console.log("Blog Click");
-}
+  const onBlogItemClick = (blogId) => {
+    navigate({pathname:'/blog', search:`?blogID=${blogId}`});
+    console.log("Blog Click");
+  }
+
 
   return (
     <div className="main-content">
@@ -26,7 +30,7 @@ const onBlogItemClick = (blogId) => {
           <Row>
             <Col>
               <div className="searchfield">
-                <Form.Control type="text" placeholder="Search Blog" />
+                <Form.Control type="text" placeholder="Search Blog" onChange={(e) => setSearch(e.target.value)}/>
                 <i className="fa fa-search" aria-hidden="true"></i>
               </div>
             </Col>
@@ -43,18 +47,17 @@ const onBlogItemClick = (blogId) => {
             {blogListData.length === 0 ? (
               <p style={{ textAlign: "center" }}>No Blogs are available 😔</p>
             ) : (
-              blogListData.map((blog, i) => (
-                <BlogItem
-                  key={i}
-                  blogTitle={blog.title}
-                  blogAuthor={"Pradhuman Padhiyar"}
-                  blogTimeAndDate={blog.date}
+ 
+              blogListData.filter((blogItem) => blogItem.title.toLowerCase().includes(search.toLowerCase())).map((filteredBlogItem, index) => {return <BlogItem
+                  key={index}
+                  blogTitle={filteredBlogItem.title}
+                  blogAuthor={getNameLocalStore() ? getNameLocalStore() : "Anonymous"}
+                  blogTimeAndDate={filteredBlogItem.date}
                   blogAuthorImage={
                     "https://api.dicebear.com/6.x/open-peeps/svg?face=angryWithFang,calm,blank"
                   }
-                  onBlogClick={() => onBlogItemClick(i)}
-                />
-              ))
+                  onBlogClick={() => onBlogItemClick(index)}
+                />})
             )}
           </Stack>
         </section>
