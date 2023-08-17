@@ -26,7 +26,7 @@ function BlogItem({ blogTitle, blogAuthor, blogTimeAndDate, blogAuthorImage, onB
 
 BlogItem.propTypes = {
   blogTitle: PropTypes.string.isRequired,
-  blogAuthor: PropTypes.string.isRequired,
+  blogAuthor: PropTypes.any,
   blogTimeAndDate: PropTypes.string.isRequired,
   blogAuthorImage: PropTypes.string.isRequired,
   onBlogClick: propTypes.any
