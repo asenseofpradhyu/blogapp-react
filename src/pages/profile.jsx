@@ -25,6 +25,7 @@ function Profile() {
   return (
         <div className="main-content">
       <Container>
+        <h2 className="mb-4">Your Profile</h2>
     <Formik
       validationSchema={schema}
       onSubmit={(values) => onSubmitProfile(values)}
