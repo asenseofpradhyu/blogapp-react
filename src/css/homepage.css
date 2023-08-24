@@ -76,5 +76,20 @@
 .blog-img .blog-img-bg {
   background: #ffffff;
 }
-
+.blog-img-text{
+  display: flex;
+  align-items: center;
+}
+.blog-view{
+  margin-left: 10px;
+}
+.blog-view p {
+  color: #ffffff;
+    margin-bottom: 0;
+    padding: 5px;
+    background: #f1346c;
+    border-radius: 10px;
+    font-size: 14px;
+    cursor: pointer;
+}
 /* End of Blog list Design */

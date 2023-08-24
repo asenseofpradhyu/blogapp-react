@@ -9,6 +9,7 @@ import Blog from "./pages/blog";
 import Profile from "./pages/profile";
 import NoPageFound from "./pages/no_page_found";
 import "./App.css";
+import ViewBlog from "./pages/view_blog";
 
 function App() {
   const [blogListData, setBlogListData] = useState([]);
@@ -47,6 +48,7 @@ function App() {
           }
         />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/view/*" element={<ViewBlog blogList={blogListData}/>} />
         <Route path="*" element={<NoPageFound />} />
       </Routes>
       <Footer />
