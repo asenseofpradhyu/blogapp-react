@@ -22,6 +22,12 @@ function Homepage({ blogListData }) {
     console.log("Blog Click");
   }
 
+  const onBlogViewClick = (event, blogId) => {
+    event.stopPropagation();
+    navigate({pathname:'/view', search:`?blogID=${blogId}`});
+    console.log("Blog View ", blogId);
+  }
+
 
   return (
     <div className="main-content">
@@ -48,7 +54,10 @@ function Homepage({ blogListData }) {
               <p style={{ textAlign: "center" }}>No Blogs are available 😔</p>
             ) : (
  
-              blogListData.filter((blogItem) => blogItem.title.toLowerCase().includes(search.toLowerCase())).map((filteredBlogItem, index) => {return <BlogItem
+              blogListData.filter((blogItem) => blogItem.title.toLowerCase().includes(search.toLowerCase())).map((filteredBlogItem, index) => { 
+                console.log("Data ", filteredBlogItem)
+             return filteredBlogItem.title == '' ? <p style={{ textAlign: "center" }}>No Blogs are available 😔</p> :
+              <BlogItem
                   key={index}
                   blogTitle={filteredBlogItem.title}
                   blogAuthor={getNameLocalStore() ? getNameLocalStore() : "Anonymous"}
@@ -57,6 +66,7 @@ function Homepage({ blogListData }) {
                     "https://api.dicebear.com/6.x/open-peeps/svg?face=angryWithFang,calm,blank"
                   }
                   onBlogClick={() => onBlogItemClick(index)}
+                  onBlogViewClick={(event) => onBlogViewClick(event, index)}
                 />})
             )}
           </Stack>
