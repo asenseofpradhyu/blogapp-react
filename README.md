@@ -12,7 +12,7 @@ This blog series is designed to help you learn React through hands-on experience
 
 2. **Day 2: Mastering Navigation and Routing in React: Building a Blog App Step-by-Step**
 
-This article covered the basics of setting up navigation and routing in a React application using react-router-dom. We learned about the importance of file structure, installed the necessary packages, and implemented a simple header and footer.
+    This article covered the basics of setting up navigation and routing in a React application using react-router-dom. We learned about the importance of file structure, installed the necessary packages, and implemented a simple header and footer.
 
 3. **Day 3: Unlocking the Power of React: Building, Adding, and Displaying Blogs in Your App**
    
@@ -20,7 +20,7 @@ This article covered the basics of setting up navigation and routing in a React 
 
 4. **Day 4: Enhancing React Blog Apps: Implementing Edit, Update, and Delete Operations**
 
-In this blog post, we covered how to edit, update, and delete blogs in a React app, working with dynamic routes and handling navigation using the React Router DOM. We also explored the useEffect hook and its role in managing side effects in functional components.
+    In this blog post, we covered how to edit, update, and delete blogs in a React app, working with dynamic routes and handling navigation using the React Router DOM. We also explored the useEffect hook and its role in managing side effects in functional components.
 
 5. **Day 5: Elevate Your React Blog App: Formik, Yup, and Search Features**
    
@@ -56,3 +56,7 @@ To get started, clone this repository and follow along with the daily blogs. Eac
 By the end of this blog series, you'll have a solid foundation in React and a functional blog app that you can use as a reference for your future projects. If you're new to React or want to reinforce your knowledge, this series is perfect for you. Stay tuned for more exciting React content in the future!
 
 Happy coding! 🎉📚🚀
+
+## Screenshots
+
+![App Screenshot](https://user-images.githubusercontent.com/93940739/171136690-5a0be976-f487-4630-b558-60d246b0beb8.png)
