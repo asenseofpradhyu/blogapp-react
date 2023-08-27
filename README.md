@@ -30,8 +30,8 @@ This blog series is designed to help you learn React through hands-on experience
    
    This article guided you through creating a blog view page in a React app, using the DOMPurify package to ensure the safe rendering of user-generated content.
 
-7. **Day 7: From Zero to Blog: Developing a React App for Your Content**
-   - Coming Soon
+7. **Day 7: Deploying Your React Blog App**
+   In this article of our React blog series, we will demonstrate how to effectively deploy our code using the npm run build command and Vercel.
 
 ## Project Architecture
 
@@ -49,7 +49,7 @@ To get started, clone this repository and follow along with the daily blogs. Eac
 - [Day 4: Enhancing React Blog Apps: Implementing Edit, Update, and Delete Operations](https://pradhuman.hashnode.dev/getting-started-with-react-creating-your-own-blog-app-part-4)
 - [Day 5: Elevate Your React Blog App: Formik, Yup, and Search Features](https://pradhuman.hashnode.dev/getting-started-with-react-creating-your-own-blog-app-part-5)
 - [Day 6: React for Beginners: Crafting a Custom Blog Application](https://pradhuman.hashnode.dev/getting-started-with-react-creating-your-own-blog-app-part-6)
-- [Day 7: From Zero to Blog: Developing a React App for Your Content](https://pradhuman.hashnode.dev/getting-started-with-react-creating-your-own-blog-app-part-7)
+- [Day 7: Deploying Your React Blog App](https://pradhuman.hashnode.dev/getting-started-with-react-creating-your-own-blog-app-part-7)
 
 ## Conclusion
 
